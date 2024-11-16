@@ -45,29 +45,105 @@ li a{
 
 .contenido{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     margin: 10px;
     padding: 20px;
+    align-items: center;
 }
 
 .contenido img{
     width: 200px;
+    border-right: 2px solid black;
 }
 
 .pizzas{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin: 10px;
 }
+
+.pizza{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+    width: 700px;
+    border: 2px solid black;
+    font-family: 'Neue Aachen Pro', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+}
+
+.pizza:hover{
+    background-color: black;
+    color: white;
+}
+
+h2{
+    margin: 20px;
+}
+
 
 .adicionales{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.adicional{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+    width: 700px;
+    border: 2px solid black;
+    font-family: 'Neue Aachen Pro', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+}
+
+.adicional:hover{
+    background-color: black;
+    color: white;
 }
 
 .bebidas{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.bebida{
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+    width: 700px;
+    border: 2px solid black;
+    font-family: 'Neue Aachen Pro', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+}
+
+.bebida:hover{
+    background-color: black;
+    color: white;
 }
 
 #pie{

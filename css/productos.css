@@ -1,0 +1,92 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.cuerpo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: lightgray;
+    font-family: 'Neue Aachen Pro', sans-serif;
+}
+
+.cabecera{
+    display: flex;
+    height: 150px;
+    background-color: black;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+li a{
+    text-decoration: none;
+    text-align: right;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: white;
+    margin: 20px;
+}
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
+}
+
+.logo img{
+    width: 100px;
+    height: auto;
+}
+
+.contenido{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px;
+    padding: 20px;
+}
+
+.contenido img{
+    width: 200px;
+}
+
+.pizzas{
+    display: flex;
+    flex-direction: column;
+}
+
+.adicionales{
+    display: flex;
+    flex-direction: column;
+}
+
+.bebidas{
+    display: flex;
+    flex-direction: column;
+}
+
+#pie{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: auto;
+}
+
+#pie a img{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80px;
+}

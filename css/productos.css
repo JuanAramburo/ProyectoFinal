@@ -4,9 +4,6 @@
 }
 
 .cuerpo{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     background-color: lightgray;
     font-family: 'Neue Aachen Pro', sans-serif;
 }
@@ -54,35 +51,58 @@ li a{
 
 .contenido img{
     width: 200px;
-    border-right: 2px solid black;
 }
 
 .pizzas{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: white;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
     margin: 10px;
+    border: 1px solid black;
 }
 
-.pizza{
-    display: flex;
-    flex-direction: row;
-    text-decoration: none;
-    align-items: center;
+button{
+    border: none;
+    border-bottom: 0.5px solid black;
     width: 700px;
-    border: 2px solid black;
+    height: 200px;
     font-family: 'Neue Aachen Pro', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
+    background-color: lightgray;
+}
+
+button:hover{
+    background-color: black;
+    color: white;
+}
+
+#tablaTamaños{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 700px;
+    height: auto;
+    font-family: 'Neue Aachen Pro', sans-serif;
+    font-weight: 500;
     font-size: 20px;
     color: black;
 }
 
-.pizza:hover{
-    background-color: black;
-    color: white;
+#tablaCombinaciones{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    width: 700px;
+    font-family: 'Neue Aachen Pro', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: black;
 }
 
 h2{
@@ -92,58 +112,48 @@ h2{
 
 .adicionales{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: white;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
     margin: 10px;
+    border: 1px solid black;
 }
 
-.adicional{
+#tablaAdicionales{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-decoration: none;
     align-items: center;
+    text-align: center;
     width: 700px;
-    border: 2px solid black;
     font-family: 'Neue Aachen Pro', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 20px;
     color: black;
-}
-
-.adicional:hover{
-    background-color: black;
-    color: white;
 }
 
 .bebidas{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     background-color: white;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
     margin: 10px;
+    border: 1px solid black;
 }
 
-.bebida{
+#tablaBebidas{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-decoration: none;
     align-items: center;
+    text-align: center;
     width: 700px;
-    border: 2px solid black;
     font-family: 'Neue Aachen Pro', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 20px;
     color: black;
-}
-
-.bebida:hover{
-    background-color: black;
-    color: white;
 }
 
 #pie{

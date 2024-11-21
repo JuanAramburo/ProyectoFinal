@@ -115,6 +115,11 @@ td{
     color: black;
 }
 
+#tablaCombinaciones img{
+    width: 150px;
+    border: 1px solid black;
+}
+
 h2{
     margin: 20px;
 }
@@ -141,6 +146,11 @@ h2{
     font-weight: 500;
     font-size: 20px;
     color: black;
+}
+
+#tablaAdicionales img{
+    width: 150px;
+    border: 1px solid black;
 }
 
 .bebidas{

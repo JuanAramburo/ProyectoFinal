@@ -9,25 +9,25 @@ var menu = [
 ]
   
 var combinaciones = [
-    {"especialidades": "Americana", "Ingredientes": "Pepperoni, Champiñones, Extra Queso"},
-    {"especialidades": "Carnes Frias", "Ingredientes": "Pepperoni, Jamon, Salami"},
-    {"especialidades": "Vegetariana", "Ingredientes": "Pimiento, Cebolla, Champiñones, Aceitunas negras"},
-    {"especialidades": "Mexicana", "Ingredientes": "Cebolla, Chorizo, Carne Molida, Jalapeño"},
-    {"especialidades": "Hawaiiana", "Ingredientes": "Jamon, Piña, Extra Queso"},
-    {"especialidades": "Brother's burger", "Ingredientes": "Tocino, Carne Molida, Extra Queso"},
-    {"especialidades": "Maui", "Ingredientes": "Jamon, Piña, Jalapeño, Tocino"},
-    {"especialidades": "4 Quesos", "Ingredientes": "Queso Mozarella, Queso Crema, Queso Parmesano, Queso Cheddar"},
-    {"especialidades": "Brother's Especial", "Ingredientes": "Pepperoni, Jamon, Pimiento, Cebolla, Champiñones, Aceitunas, Extra Queso, Aceitunas negras, Carne Molida", imagen: "/img/exv.jpg"},
-    {"especialidades": "Deluxe", "Ingredientes": "Pepperoni, Pimiento, Cebolla, Champiñones, Carne Molida"},
+    {"especialidades": "Americana", "Ingredientes": "Pepperoni, Champiñones, Extra Queso", "imagen":"/img/cmp.png"},
+    {"especialidades": "Carnes Frias", "Ingredientes": "Pepperoni, Jamon, Salami", "imagen":"/img/hpl.png"},
+    {"especialidades": "Vegetariana", "Ingredientes": "Pimiento, Cebolla, Champiñones, Aceitunas negras", "imagen":"/img/bgp.png"},
+    {"especialidades": "Mexicana", "Ingredientes": "Cebolla, Chorizo, Carne Molida, Jalapeño", "imagen":"/img/mex.jpg"},
+    {"especialidades": "Hawaiiana", "Ingredientes": "Jamon, Piña, Extra Queso", "imagen":"/img/hnc.png"},
+    {"especialidades": "Brother's burger", "Ingredientes": "Tocino, Carne Molida, Extra Queso", "imagen":"/img/cbt.jpg"},
+    {"especialidades": "Maui", "Ingredientes": "Jamon, Piña, Jalapeño, Tocino", "imagen":"/img/honol.jpg"},
+    {"especialidades": "4 Quesos", "Ingredientes": "Queso Mozarella, Queso Crema, Queso Parmesano, Queso Cheddar", "imagen":"/img/4Q.jpg"},
+    {"especialidades": "Brother's Especial", "Ingredientes": "Pepperoni, Jamon, Pimiento, Cebolla, Champiñones, Aceitunas, Extra Queso, Aceitunas negras, Carne Molida", "imagen":"/img/exv.jpg"},
+    {"especialidades": "Deluxe", "Ingredientes": "Pepperoni, Pimiento, Cebolla, Champiñones, Carne Molida", "imagen":"/img/dlx.png"},
 ]
   
 var adicionales = [
-    {"adicional": "Alitas BBQ", "precio": "$109"},
-    {"adicional": "Alitas Buffalo", "precio": "$109"},
-    {"adicional": "Papotas", "precio": "$59"},
-    {"adicional": "Chessy Bread", "precio": "$79"},
-    {"adicional": "Canelazos", "precio": "$59"},
-    {"adicional": "Bread Sticks", "precio": "$59"},
+    {"adicional": "Alitas BBQ", "precio": "$109", "imagen": "/img/alitasbbq.webp"},
+    {"adicional": "Alitas Buffalo", "precio": "$109", "imagen": "/img/buffalo.jpg"},
+    {"adicional": "Papotas", "precio": "$59", "imagen": "/img/papotas.png"},
+    {"adicional": "Chessy Bread", "precio": "$79", "imagen": "/img/chessebread.png"},
+    {"adicional": "Canelazos", "precio": "$59", "imagen": "/img/canela.png"},
+    {"adicional": "Bread Sticks", "precio": "$59", "imagen": "/img/breadstick.png"},
 ]
 
 var bebidas = [
@@ -76,7 +76,7 @@ function tablaCombinaciones(){
       <th></th>
     </tr>`;
     for(let con = 0; con < combinaciones.length; con++){
-       tablaco.innerHTML += "<td>" + combinaciones[con].especialidades + "<td>" + combinaciones[con].Ingredientes + "<td>" + combinaciones[con].imagen;
+       tablaco.innerHTML += "<td>" + combinaciones[con].especialidades + "<td>" + combinaciones[con].Ingredientes + `<td><img src="${combinaciones[con].imagen}" alt="${combinaciones[con].especialidades}"></td>`;
     }
 }
 
@@ -89,7 +89,7 @@ function tablaAdicional(){
       <th>Precio</th>
     </tr>`;
     for(let con = 0; con < adicionales.length; con++){
-       tablaadi.innerHTML += "<td>" + adicionales[con].adicional + "<td>" + adicionales[con].precio;
+       tablaadi.innerHTML += "<td>" + adicionales[con].adicional + "<td>" + adicionales[con].precio + `<td><img src="${adicionales[con].imagen}"></td>`;
     }
 }
 

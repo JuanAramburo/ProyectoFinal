@@ -61,6 +61,7 @@ li a{
     align-items: center;
     margin: 10px;
     border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 button{
@@ -72,12 +73,14 @@ button{
     font-size: 30px;
     color: black;
     background-color: rgb(250, 250, 250);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 button:hover{
     background-color: black;
     color: white;
     cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 th{
@@ -133,6 +136,7 @@ h2{
     align-items: center;
     margin: 10px;
     border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 #tablaAdicionales{
@@ -161,6 +165,7 @@ h2{
     align-items: center;
     margin: 10px;
     border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
 }
 
 #tablaBebidas{

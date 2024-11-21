@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.cdnfonts.com/css/neue-aachen-pro" rel="stylesheet">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/contacto.css">
     <link rel="icon" href="/img/logo.png">
     <title>Brother's Pizza</title>
 </head>
@@ -23,47 +23,30 @@
             </nav>
         </header>
         <section class="contenido">
+            <h1>Contacto</h1>
             <div class="card">
-                <form action="https://formsubmit.co/microinformaticamx@gmail.com" method="POST">
-                    <input type="text" name="Nombre" placeholder="Escribe tu Nombre" required>
-                    <input type="number" name="Edad" placeholder="Escribe tu Edad" required>
+                <form action="https://formsubmit.co/juan.aramburosuna9@gmail.com" method="POST">
                     <br>
-                    <label for=""><strong>ESTADO CIVIL</strong></label>
+                    <h4>NOMBRE:</h4>
                     <br>
-                    <select name="Estado Civil" id="">
-                        <option value="Soltero">Soltero</option>
-                        <option value="Divorciado">Divorciado</option>
-                        <option value="Casado">Casado</option>
-                        <option value="Viudo">Viudo</option>
-                    </select>
+                    <input type="text" name="Nombre" id="nombre" required>
                     <br>
-
-                    <label for=""><strong>SEXO</strong></label>
+                    <h4>APELLIDOS:</h4>
                     <br>
-                    <label for="Masculino">Masculino</label><input type="radio" name="Sexo" id="">
-                    <label for="Femenino">Femenino</label><input type="radio" name="Sexo" id="">
-                    <br><br>
-
-                    <label for=""><strong>IDIOMAS QUE HABLAS</strong></label>
+                    <input type="text" name="Apellido" id="apellido" required>
                     <br>
-                    <label for="Español">Español</label>
-                    <input type="checkbox" name="Español" id="idEspanol">
-                    <label for="Ingles">Ingles</label>
-                    <input type="checkbox" name="Ingles" id="idIngles">
-                    <label for="Chino">Chino</label>
-                    <input type="checkbox" name="Chino" id="idChino">
-
-                    <br><br>
-
-                    <label for=""><strong>FECHA DE NACIMIENTO</strong></label>
+                    <h4>EDAD:</h4>
                     <br>
-                    <input type="date" name="Fecha de Nacimiento" id="idFecha">
-                    <br><br>
-                    <label for=""><strong>E-MAIL</strong></label>
+                    <input type="number" name="Edad" id="edad" required>
+                    <br>
+                    <h4>CORREO ELECTRONICO: </h4>
                     <br>
                     <input type="email" name="Correo" id="idCorreo" required>
-                    <br><br>
-                    <textarea name="Comentario" id="" cols="20" rows="10"></textarea>
+                    <br>
+                    <h4>QUEJAS Y SUGERENCIAS</h4>
+                    <br>
+                    <textarea name="Comentario" id="comentario" cols="50" rows="10"></textarea>
+                    <br>
 
                     <button type="submit">ENVIAR</button>
                     <button type="reset">LIMPIAR</button>

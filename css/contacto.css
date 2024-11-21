@@ -42,59 +42,35 @@ li a{
 
 .contenido{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: 20px;
 }
 
-.contenido img{
-    width: 600px;
-    border: 2px solid black;
-}
-
-
-.alado{
+.card{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-
-.alado img{
-    width: 280px;
-    margin: 10px;
-}
-
-.contenido2{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
-}
-
-.contenido2 img{
-    width: 900px;
-    border: 2px solid black;
-}
-
-
-h2{
-    display: flex;
-    flex-direction: column;
-    font-size: 34px;
     text-align: center;
-    margin: 10px;
-    padding: 10px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 500px;
+    color: black;
+    margin: 0 auto;
 }
 
-.parrafo{
-    width: 900px;
-    font-size: 20px;
-    margin: 10px;
-    padding: 10px;
-    text-align: justify;
+h4{
+    padding: 5px;
+}
 
+input{
+    height: 30px;
+    text-align: center;
 }
 
 #pie{

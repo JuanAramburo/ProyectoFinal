@@ -1,23 +1,23 @@
 var menu = [
-    {"tamaños": "Medium Regular/Thin Crust", "uningrediente": "$179", "dosingredientes": "$219", "cincoingredientes": "$259"},
-    {"tamaños": "Medium Stuffed Crust", "uningrediente": "$209", "dosingredientes": "$249", "cincoingredientes": "$289"},
-    {"tamaños": "Large Regular/Thin Crust", "uningrediente": "$189", "dosingredientes": "$239", "cincoingredientes": "$289"},
-    {"tamaños": "Large Stuffed Crust", "uningrediente": "$229", "dosingredientes": "$279", "cincoingredientes": "$329"},
-    {"tamaños": "Large Deep Dish", "uningrediente": "$199", "dosingredientes": "$249", "cincoingredientes": "$299"},
-    {"tamaños": "Extra Large Regular/Thin Crust", "uningrediente": "$264", "dosingredientes": "$314", "cincoingredientes": "$364"},
-    {"tamaños": "Extra Large Stuffed Crust", "uningrediente": "$342", "dosingredientes": "$392", "cincoingredientes": "$442"},
+    {"tamaños": "Mediana Regular/Delgada", "uningrediente": "$179", "dosingredientes": "$219", "cincoingredientes": "$259"},
+    {"tamaños": "Mediana Orilla de Queso", "uningrediente": "$209", "dosingredientes": "$249", "cincoingredientes": "$289"},
+    {"tamaños": "Grande Regular/Delgada", "uningrediente": "$189", "dosingredientes": "$239", "cincoingredientes": "$289"},
+    {"tamaños": "Grande Orilla de Queso", "uningrediente": "$229", "dosingredientes": "$279", "cincoingredientes": "$329"},
+    {"tamaños": "Grande a la Cacerola", "uningrediente": "$199", "dosingredientes": "$249", "cincoingredientes": "$299"},
+    {"tamaños": "Extra Grande Regular/Delgada", "uningrediente": "$264", "dosingredientes": "$314", "cincoingredientes": "$364"},
+    {"tamaños": "Extra Grande Orilla de Queso", "uningrediente": "$342", "dosingredientes": "$392", "cincoingredientes": "$442"},
 ]
   
 var combinaciones = [
-    {"especialidades": "American", "Ingredientes": "Pepperoni, Mushroom, Extra Cheese"},
-    {"especialidades": "Meat Lovers", "Ingredientes": "Pepperoni, Ham, Salami"},
+    {"especialidades": "Americana", "Ingredientes": "Pepperoni, Champiñones, Extra Queso"},
+    {"especialidades": "Carnes Frias", "Ingredientes": "Pepperoni, Jamon, Salami"},
     {"especialidades": "Vegetariana", "Ingredientes": "Pimiento, Cebolla, Champiñones, Aceitunas negras"},
     {"especialidades": "Mexicana", "Ingredientes": "Cebolla, Chorizo, Carne Molida, Jalapeño"},
     {"especialidades": "Hawaiiana", "Ingredientes": "Jamon, Piña, Extra Queso"},
     {"especialidades": "Brother's burger", "Ingredientes": "Tocino, Carne Molida, Extra Queso"},
     {"especialidades": "Maui", "Ingredientes": "Jamon, Piña, Jalapeño, Tocino"},
     {"especialidades": "4 Quesos", "Ingredientes": "Queso Mozarella, Queso Crema, Queso Parmesano, Queso Cheddar"},
-    {"especialidades": "Brother's Especial", "Ingredientes": "Pepperoni, Jamon, Pimiento, Cebolla, Champiñones, Aceitunas, Extra Queso, Aceitunas negras, Carne Molida"},
+    {"especialidades": "Brother's Especial", "Ingredientes": "Pepperoni, Jamon, Pimiento, Cebolla, Champiñones, Aceitunas, Extra Queso, Aceitunas negras, Carne Molida", imagen: "/img/exv.jpg"},
     {"especialidades": "Deluxe", "Ingredientes": "Pepperoni, Pimiento, Cebolla, Champiñones, Carne Molida"},
 ]
   
@@ -73,9 +73,10 @@ function tablaCombinaciones(){
     `<tr>
       <th>Especialidades</th>
       <th>Ingredientes</th>
+      <th></th>
     </tr>`;
     for(let con = 0; con < combinaciones.length; con++){
-       tablaco.innerHTML += "<td>" + combinaciones[con].especialidades + "<td>" + combinaciones[con].Ingredientes;
+       tablaco.innerHTML += "<td>" + combinaciones[con].especialidades + "<td>" + combinaciones[con].Ingredientes + "<td>" + combinaciones[con].imagen;
     }
 }
 

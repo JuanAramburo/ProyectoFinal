@@ -65,23 +65,32 @@ li a{
 
 button{
     border: none;
-    border-bottom: 0.5px solid black;
-    width: 700px;
+    width: 750px;
     height: 200px;
     font-family: 'Neue Aachen Pro', sans-serif;
-    font-weight: 500;
-    font-size: 20px;
+    font-weight: 700;
+    font-size: 30px;
     color: black;
-    background-color: lightgray;
+    background-color: rgb(250, 250, 250);
 }
 
 button:hover{
     background-color: black;
     color: white;
+    cursor: pointer;
+}
+
+th{
+    padding: 10px;
+}
+
+td{
+    padding: 5px;
 }
 
 #tablaTamaños{
     display: flex;
+    justify-content: center;
     align-items: center;
     text-align: center;
     width: 700px;
@@ -90,13 +99,14 @@ button:hover{
     font-weight: 500;
     font-size: 20px;
     color: black;
+    border-collapse: collapse;
 }
 
 #tablaCombinaciones{
     display: flex;
     flex-direction: column;
-    text-decoration: none;
     align-items: center;
+    justify-content: center;
     text-align: center;
     width: 700px;
     font-family: 'Neue Aachen Pro', sans-serif;

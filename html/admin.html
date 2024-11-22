@@ -25,6 +25,7 @@
         <section class="contenido">
             <h1>Administrador</h1>
             <div class="formulario">
+                <h2>Pizzas Precios</h2>
                 <form id="formularioPizzas">
                     <label for="txtID">ID</label><input type="text" name="txtID" id="txtID">
                     <label for="txtTamaños">TAMAÑOS:</label><input type="text" name="txtTamaños" id="txtTamaños">
@@ -46,6 +47,35 @@
                 <tbody>
                 </tbody>
             </table>
+
+            <br>
+            <div class="especialidades">
+                <h2>Especialidades</h2>
+                <form id="formularioPizzas">
+                    <label for="txtId">ID</label><input type="text" name="txtId" id="txtId">
+                    <label for="txtEspecialidad">ESPECIALIDAD:</label><input type="text" name="txtEspecialidad" id="txtEspecialidad">
+                    <label for="txtIngredientes">INGREDIENTES:</label><input type="text" name="txtIngredientes" id="txtIngredientes">
+                    <label for="txturl">IMAGEN:</label><input type="text" name="txturl" id="txturl" readonly>
+                    <input type="file" class="subirArchivo" id="imagen"> <button id="btnSubir">Subir Imagen</button>
+                    
+                    <p id="mensaje"></p>
+
+                    <button type="button" id="btnAgg">Agregar</button>
+                    <button type="button" id="btnBus">Buscar</button>
+                    <button type="button" id="btnAct">Actualizar</button>
+                    <button type="button" id="btnMostrar">Mostrar Tabla</button>
+                    <button type="button" id="btnBorr">Borrar</button>
+                    <button type="reset">Limpiar</button>
+                </form>
+            </div>
+            <table id="tablaEspecialidades">
+                <tbody>
+                </tbody>
+            </table>
+
+            <div>
+
+            </div>
         </section>
 
 
@@ -64,6 +94,7 @@
             <a href="https://www.instagram.com/brotherspizza_mzt/"><img src="/img/instagram-logo-instagram-icon-transparent-free-png.webp" alt=""></a>
         </footer>
     </div>
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js" type="module"></script>
+    <script src="/js/especialidad.js" type="module"></script>
 </body>
 </html>

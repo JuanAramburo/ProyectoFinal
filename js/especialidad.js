@@ -51,7 +51,7 @@ function leerInput(){
 }
 
 function mostrarMensaje(mensaje){
-  var mensajeElement = document.getElementById("mensaje");
+  var mensajeElement = document.getElementById("mensajeEspecialidad");
   mensajeElement.textContent = mensaje;
   mensajeElement.style.display = "block";
   setTimeout(()=>{

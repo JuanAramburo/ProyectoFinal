@@ -7,18 +7,18 @@
     <title>Administrador</title>
 </head>
 <body>
-    <section class="formulario-iniciosesion">
-        <h1>Administrador</h1>
+    <section class="formulario-registro">
+        <h1>Registro</h1>
           <form id="formulario-sesion">
               <label for="email">Correo electrónico:</label>
-              <input type="email" id="email" name="email"><br><br>
+              <input type="email" id="emailreg" name="email" required><br><br>
               
               <label for="password">Contraseña:</label>
-              <input type="password" id="password" name="password"><br><br>
+              <input type="password" id="passwordreg" name="password" required><br><br>
           </form>
-          <button type="submit" id="login">Iniciar Sesion</button>
-          <p>¿No tienes una cuenta?</p> <a href="/html/registrar.html">Registrarse</a>
+          <button type="submit" id="registro">Registrarse</button>
+          <p>¿Ya tienes una cuenta?</p> <a href="/html/login.html">Iniciar sesion</a>
       </section>
-      <script type="module" src="/js/login.js"></script>
+      <script type="module" src="/js/registro.js"></script>
 </body>
 </html>

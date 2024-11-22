@@ -1,113 +1,183 @@
-var menu = [
-    {"tamaños": "Mediana Regular/Delgada", "uningrediente": "$179", "dosingredientes": "$219", "cincoingredientes": "$259"},
-    {"tamaños": "Mediana Orilla de Queso", "uningrediente": "$209", "dosingredientes": "$249", "cincoingredientes": "$289"},
-    {"tamaños": "Grande Regular/Delgada", "uningrediente": "$189", "dosingredientes": "$239", "cincoingredientes": "$289"},
-    {"tamaños": "Grande Orilla de Queso", "uningrediente": "$229", "dosingredientes": "$279", "cincoingredientes": "$329"},
-    {"tamaños": "Grande a la Cacerola", "uningrediente": "$199", "dosingredientes": "$249", "cincoingredientes": "$299"},
-    {"tamaños": "Extra Grande Regular/Delgada", "uningrediente": "$264", "dosingredientes": "$314", "cincoingredientes": "$364"},
-    {"tamaños": "Extra Grande Orilla de Queso", "uningrediente": "$342", "dosingredientes": "$392", "cincoingredientes": "$442"},
-]
-  
-var combinaciones = [
-    {"especialidades": "Americana", "Ingredientes": "Pepperoni, Champiñones, Extra Queso", "imagen":"/img/cmp.png"},
-    {"especialidades": "Carnes Frias", "Ingredientes": "Pepperoni, Jamon, Salami", "imagen":"/img/hpl.png"},
-    {"especialidades": "Vegetariana", "Ingredientes": "Pimiento, Cebolla, Champiñones, Aceitunas negras", "imagen":"/img/bgp.png"},
-    {"especialidades": "Mexicana", "Ingredientes": "Cebolla, Chorizo, Carne Molida, Jalapeño", "imagen":"/img/mex.jpg"},
-    {"especialidades": "Hawaiiana", "Ingredientes": "Jamon, Piña, Extra Queso", "imagen":"/img/hnc.png"},
-    {"especialidades": "Brother's burger", "Ingredientes": "Tocino, Carne Molida, Extra Queso", "imagen":"/img/cbt.jpg"},
-    {"especialidades": "Maui", "Ingredientes": "Jamon, Piña, Jalapeño, Tocino", "imagen":"/img/honol.jpg"},
-    {"especialidades": "4 Quesos", "Ingredientes": "Queso Mozarella, Queso Crema, Queso Parmesano, Queso Cheddar", "imagen":"/img/4Q.jpg"},
-    {"especialidades": "Brother's Especial", "Ingredientes": "Pepperoni, Jamon, Pimiento, Cebolla, Champiñones, Aceitunas, Extra Queso, Aceitunas negras, Carne Molida", "imagen":"/img/exv.jpg"},
-    {"especialidades": "Deluxe", "Ingredientes": "Pepperoni, Pimiento, Cebolla, Champiñones, Carne Molida", "imagen":"/img/dlx.png"},
-]
-  
-var adicionales = [
-    {"adicional": "Alitas BBQ", "precio": "$109", "imagen": "/img/alitasbbq.webp"},
-    {"adicional": "Alitas Buffalo", "precio": "$109", "imagen": "/img/buffalo.jpg"},
-    {"adicional": "Papotas", "precio": "$59", "imagen": "/img/papotas.png"},
-    {"adicional": "Chessy Bread", "precio": "$79", "imagen": "/img/chessebread.png"},
-    {"adicional": "Canelazos", "precio": "$59", "imagen": "/img/canela.png"},
-    {"adicional": "Bread Sticks", "precio": "$59", "imagen": "/img/breadstick.png"},
-]
+// Importar Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+import { getDatabase, ref as refS, onValue } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 
-var bebidas = [
-    {"bebida": "Coca-Cola 600ml", "precio" : "$30"},
-    {"bebida": "Coca-Cola Light 600ml", "precio" : "$30"},
-    {"bebida": "Coca-Cola Zero 600ml", "precio" : "$30"},
-    {"bebida": "Coca-Cola 2L", "precio" : "$55"},
-    {"bebida": "Sprite 600ml", "precio" : "$30"},
-    {"bebida": "Sprite 2L", "precio" : "$55"},
-]
+// Configuración de Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyB3RXfHp1g81mT8kLq40OfhlEneaDGemgE",
+    authDomain: "proyecto-ede3c.firebaseapp.com",
+    databaseURL: "https://proyecto-ede3c-default-rtdb.firebaseio.com",
+    projectId: "proyecto-ede3c",
+    storageBucket: "proyecto-ede3c.appspot.com",
+    messagingSenderId: "1038275061124",
+    appId: "1:1038275061124:web:dc95692d082f199dfc69d1"
+};
+
+// Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
 const btnPizzas = document.getElementById("btnPizzas");
 const btnAdicional = document.getElementById("btnAdicionales");
 const btnBebidas = document.getElementById("btnBebidas");
 
-function limpiarTablas() {
-    document.getElementById("tablaTamaños").querySelector("tbody").innerHTML = "";
-    document.getElementById("tablaCombinaciones").querySelector("tbody").innerHTML = "";
-    document.getElementById("tablaAdicionales").querySelector("tbody").innerHTML = "";
-    document.getElementById("tablaBebidas").querySelector("tbody").innerHTML = "";
-}
+// Mostrar los datos en la tabla
+function cargarPizzas() {
+    const dbref = refS(db, "Pizzas");
+    const tabla = document.getElementById("tablaTamaños").querySelector("tbody");
 
-function tablaTamaño(){
-    limpiarTablas();
-    let tabla = document.getElementById("tablaTamaños").querySelector("tbody");
-    tabla.innerHTML = 
+    // Limpiar tabla
+    tabla.innerHTML =
     `<tr>
-      <th>Tamaño</th>
-      <th>1 Ingrediente</th>
-      <th>2-4 Ingredientes</th>
-      <th>5-9 Ingredientes</th>
+    <th>Tamaños</th>
+    <th>1 Ingrediente</th>
+    <th>2-4 Ingredientes</th>
+    <th>5-9 Ingredientes</th>
     </tr>`;
-    for(let con = 0; con < menu.length; con++){
-       tabla.innerHTML += "<td>" + menu[con].tamaños + "<td>" + menu[con].uningrediente + "<td>" + menu[con].dosingredientes + "<td>" + menu[con].cincoingredientes;
-    }
+    // Escuchar cambios en la base de datos
+    onValue(dbref, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const data = childSnapshot.val();
+            var fila = document.createElement("tr");
+            // Celda para la marca
+            var celdaTamaños = document.createElement("td");
+            celdaTamaños.textContent = data.tamaños;
+            fila.appendChild(celdaTamaños);
+
+            // Celda para el modelo
+            var celdaUno = document.createElement("td");
+            celdaUno.textContent = data.uno;
+            fila.appendChild(celdaUno);
+
+            // Celda para la descripción
+            var celdaDos = document.createElement("td");
+            celdaDos.textContent = data.dos;
+            fila.appendChild(celdaDos);
+
+            // Celda para la imagen
+            var celdaCinco = document.createElement("td");
+            celdaCinco.textContent = data.cinco;
+            fila.appendChild(celdaCinco);
+
+            // Agregar la fila al cuerpo de la tabla
+            tabla.appendChild(fila);
+        });
+    }, { onlyOnce: true });
 }
 
-function tablaCombinaciones(){
-    limpiarTablas();
-    tablaTamaño();
-    let tablaco = document.getElementById("tablaCombinaciones").querySelector("tbody");
-    tablaco.innerHTML = 
+function cargarEspecialidades() {
+    const dbref = refS(db, "Especialidades");
+    const tabla = document.getElementById("tablaCombinaciones").querySelector("tbody");
+    
+    // Limpiar tabla
+    tabla.innerHTML =
     `<tr>
-      <th>Especialidades</th>
-      <th>Ingredientes</th>
-      <th></th>
+    <th>Especialidad</th>
+    <th>Ingredientes</th>
+    <th>Imagen</th>
     </tr>`;
-    for(let con = 0; con < combinaciones.length; con++){
-       tablaco.innerHTML += "<td>" + combinaciones[con].especialidades + "<td>" + combinaciones[con].Ingredientes + `<td><img src="${combinaciones[con].imagen}" alt="${combinaciones[con].especialidades}"></td>`;
-    }
+    // Escuchar cambios en la base de datos
+    onValue(dbref, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const data = childSnapshot.val();
+            var fila = document.createElement("tr");
+            var celdaEspecialidad = document.createElement("td");
+            celdaEspecialidad.textContent = data.especialidad;
+            fila.appendChild(celdaEspecialidad);
+
+            // Celda para el modelo
+            var celdaIngredientes = document.createElement("td");
+            celdaIngredientes.textContent = data.ingredientes;
+            fila.appendChild(celdaIngredientes);
+
+            // Celda para la imagen
+            var celdaImagen = document.createElement("td");
+            var imagen = document.createElement("img");
+            imagen.src = data.urlimg;
+            imagen.width = 100;
+            celdaImagen.appendChild(imagen);
+            fila.appendChild(celdaImagen);
+
+            // Agregar la fila al cuerpo de la tabla
+            tabla.appendChild(fila);
+        });
+    }, { onlyOnce: true });
 }
 
-function tablaAdicional(){
-    limpiarTablas();
-    let tablaadi = document.getElementById("tablaAdicionales").querySelector("tbody");
-    tablaadi.innerHTML = 
+function cargarAdicional() {
+    const dbref = refS(db, "Adicionales");
+    const tabla = document.getElementById("tablaAdicionales").querySelector("tbody");
+    
+    tabla.innerHTML =
     `<tr>
-      <th>Extras</th>
-      <th>Precio</th>
+    <th>Adicional</th>
+    <th>Precio</th>
+    <th>Imagen</th>
     </tr>`;
-    for(let con = 0; con < adicionales.length; con++){
-       tablaadi.innerHTML += "<td>" + adicionales[con].adicional + "<td>" + adicionales[con].precio + `<td><img src="${adicionales[con].imagen}"></td>`;
-    }
+    // Escuchar cambios en la base de datos
+    onValue(dbref, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const data = childSnapshot.val();
+            var fila = document.createElement("tr");
+            // Celda para la marca
+            var celdaAdicional = document.createElement("td");
+            celdaAdicional.textContent = data.adicional;
+            fila.appendChild(celdaAdicional);
+
+            // Celda para el modelo
+            var celdaPrecio = document.createElement("td");
+            celdaPrecio.textContent = data.precio;
+            fila.appendChild(celdaPrecio);
+
+            // Celda para la imagen
+            var celdaImagen = document.createElement("td");
+            var imagen = document.createElement("img");
+            imagen.src = data.urlimag;
+            imagen.width = 100;
+            celdaImagen.appendChild(imagen);
+            fila.appendChild(celdaImagen);
+
+            // Agregar la fila al cuerpo de la tabla
+            tabla.appendChild(fila);
+        });
+    }, { onlyOnce: true });
 }
 
-function tablaBebidas(){
-    limpiarTablas();
-    let tablabebida = document.getElementById("tablaBebidas").querySelector("tbody");
-    tablabebida.innerHTML = 
+function cargarBebidas() {
+    const dbref = refS(db, "Bebidas");
+    const tabla = document.getElementById("tablaBebidas").querySelector("tbody");
+    
+    tabla.innerHTML =
     `<tr>
-      <th>Bebidas</th>
-      <th>Precio</th>
+    <th>Bebidas</th>
+    <th>Precio</th>
     </tr>`;
-    for(let con = 0; con < bebidas.length; con++){
-       tablabebida.innerHTML += "<td>" + bebidas[con].bebida + "<td>" + bebidas[con].precio;
-    }
+    // Escuchar cambios en la base de datos
+    onValue(dbref, (snapshot) => {
+        snapshot.forEach((childSnapshot) => {
+            const childKey = childSnapshot.key;
+            const data = childSnapshot.val();
+            var fila = document.createElement("tr");
+            // Celda para la marca
+            var celdaBebidas = document.createElement("td");
+            celdaBebidas.textContent = data.bebida;
+            fila.appendChild(celdaBebidas);
+
+            // Celda para el modelo
+            var Preciobebida = document.createElement("td");
+            Preciobebida.textContent = data.preciobebida;
+            fila.appendChild(Preciobebida);
+
+            // Agregar la fila al cuerpo de la tabla
+            tabla.appendChild(fila);
+        });
+    }, { onlyOnce: true });
 }
 
-
-btnPizzas.addEventListener("click", tablaTamaño);
-btnPizzas.addEventListener("click", tablaCombinaciones);
-btnAdicional.addEventListener("click", tablaAdicional);
-btnBebidas.addEventListener("click", tablaBebidas);
+btnPizzas.addEventListener("click", cargarPizzas);
+btnPizzas.addEventListener("click", cargarEspecialidades);
+btnAdicional.addEventListener("click", cargarAdicional);
+btnBebidas.addEventListener("click",cargarBebidas);

@@ -32,10 +32,10 @@
             // Limpiar tabla
             tabla.innerHTML =
             `<tr>
-            <th>ID</th>
-            <th>Especialidad</th>
-            <th>Ingredientes</th>
-            <th></th>
+                <th>ID</th>
+                <th>Especialidad</th>
+                <th>Ingredientes</th>
+                <th>Imagen</th>
             </tr>`;
 
             // Escuchar cambios en la base de datos
@@ -63,7 +63,7 @@
                     // Imagen
                     const celdaImagen = document.createElement("td");
                     const imagen = document.createElement("img");
-                    imagen.src = data.urlimg
+                    imagen.src = data.urlimg || "https://via.placeholder.com/100";
                     imagen.width = 100;
                     celdaImagen.appendChild(imagen);
                     fila.appendChild(celdaImagen);
@@ -72,9 +72,16 @@
                 });
             });
         }
+                // Función para mostrar la tabla y cargar los datos
 
-        // Cargar datos cuando se cargue la página
-        document.addEventListener("DOMContentLoaded", cargarEspecialidades);
+        const btnAgregar = document.getElementById("mostrarTabla")
+        function mostrarTabla() {
+            const tabla = document.getElementById("tablaEspecialidades");
+            tabla.style.display = "table"; // Muestra la tabla
+            cargarEspecialidades(); // Carga los datos
+        }
+
+        btnAgregar.addEventListener("click", mostrarTabla);
     </script>
     <style>
         body {
@@ -84,6 +91,7 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            display: none; /* La tabla estará oculta inicialmente */
         }
         th, td {
             border: 1px solid #ddd;
@@ -100,6 +108,7 @@
 </head>
 <body>
     <h1>Especialidades Disponibles</h1>
+    <button id="mostrarTabla">Mostrar Especialidades</button>
     <table id="tablaEspecialidades">
         <tbody>
             <!-- Los datos se cargarán dinámicamente -->

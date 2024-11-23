@@ -73,7 +73,7 @@ function cargarEspecialidades() {
     `<tr>
     <th>Especialidad</th>
     <th>Ingredientes</th>
-    <th>Imagen</th>
+    <th></th>
     </tr>`;
     onValue(dbref, (snapshot) => {
         snapshot.forEach((childSnapshot) => {
@@ -109,7 +109,7 @@ function cargarAdicional() {
     `<tr>
     <th>Adicional</th>
     <th>Precio</th>
-    <th>Imagen</th>
+    <th></th>
     </tr>`;
     onValue(dbref, (snapshot) => {
         snapshot.forEach((childSnapshot) => {

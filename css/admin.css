@@ -1,52 +1,62 @@
 *{
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 .cuerpo{
-  background-color: lightgray;
-  font-family: 'Neue Aachen Pro', sans-serif;
+    background-color: lightgray;
+    font-family: 'Neue Aachen Pro', sans-serif;
 }
 
 .cabecera{
-  display: flex;
-  height: 150px;
-  background-color: black;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-evenly;
+    display: flex;
+    height: 150px;
+    background-color: black;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 li a{
-  text-decoration: none;
-  text-align: right;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  color: white;
-  margin: 20px;
+    text-decoration: none;
+    text-align: right;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: white;
+    margin: 20px;
 }
 
 .logo{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30px;
 }
 
 .logo img{
-  width: 100px;
-  height: auto;
+    width: 100px;
+    height: auto;
+}
+
+.logo img:hover{
+    transform: scale(1.20);
+    transition: .3s;
+}
+
+h1{
+    padding: 10px;
+    font-size: 36px;
 }
 
 .contenido{
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 10px;
-  padding: 20px;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 10px;
+    padding: 20px;
+    align-items: center;
 }
 
 .Pizzas{
@@ -93,6 +103,18 @@ button{
 button:hover{
     background-color: black;
     color: white;
+    transform: scale(1.10);
+    transition: .3s;
+}
+
+#cerrarSesion{
+    background-color: black;
+    color: white;
+}
+
+#cerrarSesion:hover{
+    background-color: white;
+    color: black;
 }
 
 table{
@@ -178,4 +200,9 @@ th, td{
   flex-direction: row;
   flex-wrap: wrap;
   width: 80px;
+}
+
+#pie a img:hover{
+    transform: scale(1.20);
+    transition: .3s;
 }

@@ -40,6 +40,11 @@ li a{
     height: auto;
 }
 
+.logo img:hover{
+    transform: scale(1.20);
+    transition: .3s;
+}
+
 .contenido{
     display: flex;
     flex-direction: column;
@@ -83,6 +88,8 @@ button:hover{
     color: white;
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+    transform: scale(1.10);
+    transition: .3s;
 }
 
 th{
@@ -204,4 +211,9 @@ h2{
     flex-direction: row;
     flex-wrap: wrap;
     width: 80px;
+}
+
+#pie a img:hover{
+    transform: scale(1.20);
+    transition: .3s;
 }

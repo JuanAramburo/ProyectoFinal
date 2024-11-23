@@ -1,12 +1,8 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 import { getDatabase, onValue, ref as refS, set, child, get, update, remove } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-storage.js";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyB3RXfHp1g81mT8kLq40OfhlEneaDGemgE",
     authDomain: "proyecto-ede3c.firebaseapp.com",
@@ -30,17 +26,16 @@ var urlimg = "";
 const btnAgregar = document.getElementById("btnAgg");
 const btnBuscar = document.getElementById("btnBus");
 const btnActualizar = document.getElementById("btnAct");
-const btnMostrar = document.getElementById("btnMostrar");
 const btnBorrar = document.getElementById("btnBorr");
 const imagenInput = document.getElementById("imagen");
 const btnImagen = document.getElementById("btnSubir");
 const ProgressDiv = document.getElementById("progress");
 
 function limpiarInput(){
-  idEspecialidad = document.getElementById("txtId").value = "";
-  especialidad = document.getElementById("txtEspecialidad").value = "";
-  ingredientes = document.getElementById("txtIngredientes").value = "";
-  urlimg = document.getElementById("txturl").value = "";
+    idEspecialidad = document.getElementById("txtId").value = "";
+    especialidad = document.getElementById("txtEspecialidad").value = "";
+    ingredientes = document.getElementById("txtIngredientes").value = "";
+    urlimg = document.getElementById("txturl").value = "";
 }
 
 function leerInput(){
@@ -51,44 +46,40 @@ function leerInput(){
 }
 
 function mostrarMensaje(mensaje){
-  var mensajeElement = document.getElementById("mensajeEspecialidad");
-  mensajeElement.textContent = mensaje;
-  mensajeElement.style.display = "block";
-  setTimeout(()=>{
-      mensajeElement.style.display = "none"},1000);
+    var mensajeElement = document.getElementById("mensajeEspecialidad");
+    mensajeElement.textContent = mensaje;
+    mensajeElement.style.display = "block";
+    setTimeout(()=>{
+        mensajeElement.style.display = "none"},1000);
 }
 
 function insertarProducto() {
-  leerInput();
-  // Validar
-  if (idEspecialidad === "" || especialidad === "" || ingredientes === "") {
-      mostrarMensaje("Faltaron datos por capturar");
-      return;
-  }
+    leerInput();
+    // Validar
+    if (idEspecialidad === "" || especialidad === "" || ingredientes === "") {
+        mostrarMensaje("Faltaron datos por capturar");
+        return;
+    }
 
-  //--- Función de Firebase para agregar registro
-  set(
-      refS(db, 'Especialidades/' + idEspecialidad),
-      {
-          // Datos a guardar
-          idEspecialidad:idEspecialidad,
-          especialidad:especialidad,
-          ingredientes:ingredientes,
-          urlimg:urlimg,
-      }
-  ).then(() => {
-      alert("Se agregó con éxito");
-      limpiarInput(); // Limpiar los campos después de agregar
-      ListarEspecialidades(); // Llamar a la función para actualizar la tabla
-  }).catch((error) => {
+    //--- Función de Firebase para agregar registro
+    set(refS(db, 'Especialidades/' + idEspecialidad), {
+            idEspecialidad:idEspecialidad,
+            especialidad:especialidad,
+            ingredientes:ingredientes,
+            urlimg:urlimg,
+      }).then(() => {
+        alert("Se agregó con éxito");
+        limpiarInput();
+        ListarEspecialidades();
+    }).catch((error) => {
       alert("Ocurrió un error");
-  });
+    });
 }
 
 function escribirEspecialidad(){
-  document.getElementById("txtEspecialidad").value = especialidad;
-  document.getElementById("txtIngredientes").value = ingredientes;
-  document.getElementById("txturl").value = urlimg;
+    document.getElementById("txtEspecialidad").value = especialidad;
+    document.getElementById("txtIngredientes").value = ingredientes;
+    document.getElementById("txturl").value = urlimg;
 }
 
 function BuscarEspecialidad(){
@@ -130,22 +121,18 @@ function ListarEspecialidades() {
 
             var fila = document.createElement("tr");
 
-            // Celda para el número de serie
             var celdaID = document.createElement("td");
             celdaID.textContent = data.idEspecialidad;
             fila.appendChild(celdaID);
 
-            // Celda para la marca
             var celdaEspecialidad = document.createElement("td");
             celdaEspecialidad.textContent = data.especialidad;
             fila.appendChild(celdaEspecialidad);
 
-            // Celda para el modelo
             var celdaIngredientes = document.createElement("td");
             celdaIngredientes.textContent = data.ingredientes;
             fila.appendChild(celdaIngredientes);
 
-            // Celda para la imagen
             var celdaImagen = document.createElement("td");
             var imagen = document.createElement("img");
             imagen.src = data.urlimg;
@@ -153,7 +140,6 @@ function ListarEspecialidades() {
             celdaImagen.appendChild(imagen);
             fila.appendChild(celdaImagen);
 
-            // Agregar la fila al cuerpo de la tabla
             tbody.appendChild(fila);
         });
     }, { onlyOnce: true });
@@ -238,6 +224,6 @@ btnImagen.addEventListener("click", (event) =>{
 btnAgregar.addEventListener("click", insertarProducto);
 btnBuscar.addEventListener("click", BuscarEspecialidad);
 btnActualizar.addEventListener("click", actualizarEspecialidad);
-btnMostrar.addEventListener("click", mostrarTablaEspecialidad);
 btnBorrar.addEventListener("click", eliminarEspecialidad);
+document.addEventListener("DOMContentLoaded", mostrarTablaEspecialidad);
 

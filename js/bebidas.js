@@ -1,12 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 import { getDatabase, onValue, ref as refS, set, child, get, update, remove } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-database.js";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-storage.js";
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyB3RXfHp1g81mT8kLq40OfhlEneaDGemgE",
     authDomain: "proyecto-ede3c.firebaseapp.com",
@@ -15,12 +10,10 @@ const firebaseConfig = {
     storageBucket: "proyecto-ede3c.firebasestorage.app",
     messagingSenderId: "1038275061124",
     appId: "1:1038275061124:web:dc95692d082f199dfc69d1"
-  };
+};
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-const storage = getStorage();
 
 var idBebida = 0;
 var bebida = "";
@@ -29,7 +22,6 @@ var preciobebida = "";
 const btnAgregar = document.getElementById("AgregarBebida");
 const btnBuscar = document.getElementById("BuscarBebida");
 const btnActualizar = document.getElementById("ActualizarBebida");
-const btnMostrar = document.getElementById("MostrarBebida");
 const btnBorrar = document.getElementById("BorrarBebida");
 
 function limpiarInput(){
@@ -45,11 +37,11 @@ function leerInput(){
 }
 
 function mostrarMensaje(mensaje){
-  var mensajeElement = document.getElementById("mensajeBebidas");
-  mensajeElement.textContent = mensaje;
-  mensajeElement.style.display = "block";
-  setTimeout(()=>{
-      mensajeElement.style.display = "none"},1000);
+    var mensajeElement = document.getElementById("mensajeBebidas");
+    mensajeElement.textContent = mensaje;
+    mensajeElement.style.display = "block";
+    setTimeout(()=>{
+        mensajeElement.style.display = "none"},1000);
 }
 
 function insertarProducto(){
@@ -61,26 +53,22 @@ function insertarProducto(){
   }
 
   //--- Función de Firebase para agregar registro
-  set(
-      refS(db, 'Bebidas/' + idBebida),
-      {
-          // Datos a guardar
-          idBebida:idBebida,
-          bebida:bebida,
-          preciobebida:preciobebida
-      }
-  ).then(() => {
-      alert("Se agregó con éxito");
-      limpiarInput(); // Limpiar los campos después de agregar
-      listarBebidas(); // Llamar a la función para actualizar la tabla
-  }).catch((error) => {
+  set(refS(db, 'Bebidas/' + idBebida),{
+            idBebida:idBebida,
+            bebida:bebida,
+            preciobebida:preciobebida
+    }).then(() => {
+        alert("Se agregó con éxito");
+        limpiarInput();
+        listarBebidas();
+    }).catch((error) => {
       alert("Ocurrió un error");
-  });
+    });
 }
 
 function escribirBebidas(){
-  document.getElementById("txtBebidas").value = bebida;
-  document.getElementById("PrecioBebidas").value = preciobebida;
+    document.getElementById("txtBebidas").value = bebida;
+    document.getElementById("PrecioBebidas").value = preciobebida;
 }
 
 function buscarBebida(){
@@ -120,22 +108,18 @@ function listarBebidas() {
 
             var fila = document.createElement("tr");
 
-            // Celda para el número de serie
             var idBebidas = document.createElement("td");
             idBebidas.textContent = data.idBebida;
             fila.appendChild(idBebidas);
 
-            // Celda para la marca
             var celdaBebidas = document.createElement("td");
             celdaBebidas.textContent = data.bebida;
             fila.appendChild(celdaBebidas);
 
-            // Celda para el modelo
             var Preciobebida = document.createElement("td");
             Preciobebida.textContent = data.preciobebida;
             fila.appendChild(Preciobebida);
 
-            // Agregar la fila al cuerpo de la tabla
             tbody.appendChild(fila);
         });
     }, { onlyOnce: true });
@@ -193,5 +177,5 @@ function eliminarBebidas(){
 btnAgregar.addEventListener("click", insertarProducto);
 btnBuscar.addEventListener("click", buscarBebida);
 btnActualizar.addEventListener("click", actualizarBebidas);
-btnMostrar.addEventListener("click", mostrarTablaBebidas);
 btnBorrar.addEventListener("click", eliminarBebidas);
+document.addEventListener("DOMContentLoaded", mostrarTablaBebidas);

@@ -25,7 +25,6 @@ var urlimag = "";
 const btnAgregar = document.getElementById("Agregar");
 const btnBuscar = document.getElementById("Buscar");
 const btnActualizar = document.getElementById("Actualizar");
-const btnMostrar = document.getElementById("Mostrar");
 const btnBorrar = document.getElementById("Borrar");
 const imagenInput = document.getElementById("imagenes");
 const btnImage = document.getElementById("btnImage");
@@ -62,28 +61,24 @@ function insertarProducto() {
     }
 
     //--- Función de Firebase para agregar registro
-    set(
-        refS(db, 'Adicionales/' + idAdicional),
-        {
-            // Datos a guardar
+    set(refS(db, 'Adicionales/' + idAdicional),{
             idAdicional:idAdicional,
             adicional:adicional,
             precio:precio,
             urlimag:urlimag,
-        }
-    ).then(() => {
-        alert("Se agregó con éxito");
-        limpiarInput(); // Limpiar los campos después de agregar
-        listarAdicional(); // Llamar a la función para actualizar la tabla
-    }).catch((error) => {
-        alert("Ocurrió un error");
+        }).then(() => {
+            alert("Se agregó con éxito");
+            limpiarInput();
+            listarAdicional();
+        }).catch((error) => {
+            alert("Ocurrió un error");
     });
 }
 
 function escribirAdicional(){
-  document.getElementById("txtAdicional").value = adicional;
-  document.getElementById("Precio").value = precio;
-  document.getElementById("txtURL").value = urlimag;
+    document.getElementById("txtAdicional").value = adicional;
+    document.getElementById("Precio").value = precio;
+    document.getElementById("txtURL").value = urlimag;
 }
 
 function buscarAdicional(){
@@ -125,22 +120,18 @@ function listarAdicional() {
 
             var fila = document.createElement("tr");
 
-            // Celda para el número de serie
             var idadicional = document.createElement("td");
             idadicional.textContent = data.idAdicional;
             fila.appendChild(idadicional);
 
-            // Celda para la marca
             var celdaAdicional = document.createElement("td");
             celdaAdicional.textContent = data.adicional;
             fila.appendChild(celdaAdicional);
 
-            // Celda para el modelo
             var celdaPrecio = document.createElement("td");
             celdaPrecio.textContent = data.precio;
             fila.appendChild(celdaPrecio);
 
-            // Celda para la imagen
             var celdaImagen = document.createElement("td");
             var imagen = document.createElement("img");
             imagen.src = data.urlimag;
@@ -148,7 +139,6 @@ function listarAdicional() {
             celdaImagen.appendChild(imagen);
             fila.appendChild(celdaImagen);
 
-            // Agregar la fila al cuerpo de la tabla
             tbody.appendChild(fila);
         });
     }, { onlyOnce: true });
@@ -233,5 +223,5 @@ btnImage.addEventListener("click", (event) =>{
 btnAgregar.addEventListener("click", insertarProducto);
 btnBuscar.addEventListener("click", buscarAdicional);
 btnActualizar.addEventListener("click", actualizarAdicional);
-btnMostrar.addEventListener("click", mostrarTablaAdicional);
 btnBorrar.addEventListener("click", eliminarAdicional);
+document.addEventListener("DOMContentLoaded", mostrarTablaAdicional);

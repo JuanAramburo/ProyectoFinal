@@ -6,7 +6,7 @@
     <link href="https://fonts.cdnfonts.com/css/neue-aachen-pro" rel="stylesheet">
     <link rel="stylesheet" href="/css/admin.css">
     <link rel="icon" href="/img/logo.png">
-    <title>Productos</title>
+    <title>Administrador</title>
 </head>
 <body>
     <div class="cuerpo">
@@ -23,102 +23,100 @@
             </nav>
         </header>
         <section class="contenido">
-            <h1>Administrador</h1>
-            <div class="formulario">
-                <h2>Pizzas Precios</h2>
+            <div class="Pizzas">
+                <h2>Pizzas</h2>
                 <form id="formularioPizzas">
-                    <label for="">ID</label><input type="text" name="txtID" id="txtID">
-                    <label for="">TAMAÑOS:</label><input type="text" name="txtTamaños" id="txtTamaños">
-                    <label for="">1 INGREDIENTE:</label><input type="text" name="txtUNO" id="txtUNO">
-                    <label for="">2-4 INGREDIENTES:</label><input type="text" name="txtDOS" id="txtDOS">
-                    <label for="">5-9 INGREDIENTES:</label><input type="text" name="txtCINCO" id="txtCINCO">
+                    <br><label for="">ID</label><br><input type="text" name="txtID" id="txtID">
+                    <br><label for="">TAMAÑOS:</label><input type="text" name="txtTamaños" id="txtTamaños">
+                    <h2>Precios</h2>
+                    <br><label for="">1 INGREDIENTE:</label><input type="text" name="txtUNO" id="txtUNO">
+                    <br><label for="">2-4 INGREDIENTES:</label><input type="text" name="txtDOS" id="txtDOS">
+                    <br><label for="">5-9 INGREDIENTES:</label><input type="text" name="txtCINCO" id="txtCINCO">
                     
                     <p id="mensajePizzas"></p>
 
+                    <br>
                     <button type="button" id="btnAnadir">Agregar</button>
                     <button type="button" id="btnBuscar">Buscar</button>
                     <button type="button" id="btnActualizar">Actualizar</button>
-                    <button type="button" id="btnMostra">Mostrar Tabla</button>
-                    <button type="button" id="btnBorrar">Borrar</button>
+                    <button type="button" id="btnBorrar">Eliminar</button>
                     <button type="reset">Limpiar</button>
                 </form>
+                <table id="tablaTamaños">
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
-            <table id="tablaTamaños">
-                <tbody>
-                </tbody>
-            </table>
 
             <br>
             <div class="especialidades">
                 <h2>Especialidades</h2>
                 <form id="formularioEspecialidades">
-                    <label for="">ID</label><input type="text" name="txtId" id="txtId">
-                    <label for="">ESPECIALIDAD:</label><input type="text" name="txtEspecialidad" id="txtEspecialidad">
-                    <label for="">INGREDIENTES:</label><input type="text" name="txtIngredientes" id="txtIngredientes">
-                    <label for="">IMAGEN:</label><input type="text" name="txturl" id="txturl" readonly>
-                    <input type="file" class="subirArchivo" id="imagen"> <button id="btnSubir">Subir Imagen</button>
+                    <br><label for="">ID</label><br><input type="text" name="txtId" id="txtId">
+                    <br><label for="">ESPECIALIDAD:</label><input type="text" name="txtEspecialidad" id="txtEspecialidad">
+                    <br><label for="">INGREDIENTES:</label><input type="text" name="txtIngredientes" id="txtIngredientes">
+                    <br><label for="">IMAGEN:</label><input type="text" name="txturl" id="txturl" readonly>
+                    <br><input type="file" class="subirArchivo" id="imagen"> <button id="btnSubir">Subir Imagen</button>
                     
                     <p id="mensajeEspecialidad"></p>
 
+                    <br>
                     <button type="button" id="btnAgg">Agregar</button>
                     <button type="button" id="btnBus">Buscar</button>
                     <button type="button" id="btnAct">Actualizar</button>
-                    <button type="button" id="btnMostrar">Mostrar Tabla</button>
-                    <button type="button" id="btnBorr">Borrar</button>
+                    <button type="button" id="btnBorr">Eliminar</button>
                     <button type="reset">Limpiar</button>
                 </form>
+                <table id="tablaEspecialidades">
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
-            <table id="tablaEspecialidades">
-                <tbody>
-                </tbody>
-            </table>
 
             <div class="adicionales">
                 <h2>Adicionales</h2>
                 <form id="formularioAdicionales">
-                    <label for="">ID:</label><input type="text" name="txtId" id="IDadicional">
-                    <label for="">ADICIONAL:</label><input type="text" name="txt" id="txtAdicional">
-                    <label for="">PRECIO:</label><input type="text" name="txtIngredientes" id="Precio">
-                    <label for="">IMAGEN:</label><input type="text" name="txturl" id="txtURL" readonly>
-                    <input type="file" class="subirArchivo" id="imagenes"> <button id="btnImage">Subir Imagen</button>
+                    <br><label for="">ID:</label><br><input type="text" name="txtId" id="IDadicional">
+                    <br><label for="">ADICIONAL:</label><input type="text" name="txt" id="txtAdicional">
+                    <br><label for="">PRECIO:</label><input type="text" name="txtIngredientes" id="Precio">
+                    <br><label for="">IMAGEN:</label><input type="text" name="txturl" id="txtURL" readonly>
+                    <br><input type="file" class="subirArchivo" id="imagenes"> <button id="btnImage">Subir Imagen</button>
                     
                     <p id="mensajeAdicional"></p>
 
+                    <br>
                     <button type="button" id="Agregar">Agregar</button>
                     <button type="button" id="Buscar">Buscar</button>
                     <button type="button" id="Actualizar">Actualizar</button>
-                    <button type="button" id="Mostrar">Mostrar Tabla</button>
-                    <button type="button" id="Borrar">Borrar</button>
+                    <button type="button" id="Borrar">Eliminar</button>
                     <button type="reset">Limpiar</button>
                 </form>
+                <table id="tablaAdicionales">
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
-            <table id="tablaAdicionales">
-                <tbody>
-                </tbody>
-            </table>
 
             <div class="bebidas">
                 <h2>Bebidas</h2>
                 <form id="formularioBebidas">
-                    <label for="">ID: </label><input type="text" name="txtId" id="idBebidas">
-                    <label for="">BEBIDAS:</label><input type="text" name="txt" id="txtBebidas">
-                    <label for="">PRECIO:</label><input type="text" name="Precio" id="PrecioBebidas">
+                    <br><label for="">ID: </label><br><input type="text" name="txtId" id="idBebidas">
+                    <br><label for="">BEBIDAS:</label><input type="text" name="txt" id="txtBebidas">
+                    <br><label for="">PRECIO:</label><input type="text" name="Precio" id="PrecioBebidas">
                     
                     <p id="mensajeBebidas"></p>
 
+                    <br>
                     <button type="button" id="AgregarBebida">Agregar</button>
                     <button type="button" id="BuscarBebida">Buscar</button>
                     <button type="button" id="ActualizarBebida">Actualizar</button>
-                    <button type="button" id="MostrarBebida">Mostrar Tabla</button>
-                    <button type="button" id="BorrarBebida">Borrar</button>
+                    <button type="button" id="BorrarBebida">Eliminar</button>
                     <button type="reset">Limpiar</button>
                 </form>
-            </div>
-            <table id="tablaBebidas">
-                <tbody>
-                </tbody>
-            </table>
-
+                <table id="tablaBebidas">
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </section>
 

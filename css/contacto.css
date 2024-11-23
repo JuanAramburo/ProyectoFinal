@@ -79,10 +79,15 @@ input{
     width: 300px;
     height: 30px;
     text-align: center;
+    border-radius: 20px;
 }
 
 #edad{
     width: 50px;
+}
+
+#comentario{
+    border-radius: 20px;
 }
 
 button{

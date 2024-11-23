@@ -111,7 +111,7 @@ function ListarEspecialidades() {
     <th>ID</th>
     <th>Especialidad</th>
     <th>Ingredientes</th>
-    <th></th>
+    <th>Imagen</th>
     </tr>`;
 
     onValue(dbref, (snapshot) => {

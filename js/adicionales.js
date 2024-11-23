@@ -110,7 +110,7 @@ function listarAdicional() {
     <th>ID</th>
     <th>Adicional</th>
     <th>Precio</th>
-    <th></th>
+    <th>Imagen</th>
     </tr>`;
 
     onValue(dbref, (snapshot) => {

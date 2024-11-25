@@ -170,6 +170,10 @@ th, td{
     color: black;
 }
 
+#txtURL{
+    width: 550px;
+}
+
 .bebidas{
     display: flex;
     flex-direction: column;

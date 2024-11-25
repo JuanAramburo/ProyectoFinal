@@ -93,11 +93,10 @@ function BuscarEspecialidad(){
         if(snapshot.exists()){
             especialidad = snapshot.val().especialidad;
             ingredientes = snapshot.val().ingredientes;
-            urlimg = snapshot.val().urlimg;
             escribirEspecialidad();
         } else {
             limpiarInput();
-            mostrarMensaje("El producto con codigo " + idEspecialidad + "no existe.")
+            mostrarMensaje("El producto con codigo " + idEspecialidad + " no existe.")
         }
     });
 }

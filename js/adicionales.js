@@ -92,11 +92,10 @@ function buscarAdicional(){
         if(snapshot.exists()){
             adicional = snapshot.val().adicional;
             precio = snapshot.val().precio;
-            urlimag = snapshot.val().urlimag;
             escribirAdicional();
         } else {
             limpiarInput();
-            mostrarMensaje("El producto con codigo " + idEspecialidad + "no existe.")
+            mostrarMensaje("El producto con codigo " + idEspecialidad + " no existe.")
         }
     });
 }
@@ -189,7 +188,7 @@ function eliminarAdicional(){
             });
         } else {
             limpiarInput();
-            mostrarMensaje("El producto con ID " + idAdicional + "no existe.");
+            mostrarMensaje("El producto con ID " + idAdicional + " no existe.");
         }
     });
     listarAdicional();

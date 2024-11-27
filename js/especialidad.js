@@ -93,6 +93,7 @@ function BuscarEspecialidad(){
         if(snapshot.exists()){
             especialidad = snapshot.val().especialidad;
             ingredientes = snapshot.val().ingredientes;
+            urlimg = snapshot.val().urlimg;
             escribirEspecialidad();
         } else {
             limpiarInput();
@@ -156,7 +157,7 @@ function actualizarEspecialidad(){
         ingredientes:ingredientes,
         urlimg:urlimg
     }).then(()=>{
-        mostrarMensaje("Se actualizo con exito.");
+        alert("Se actualizo con éxito");
         limpiarInput();
         ListarEspecialidades();
     }).catch((error) =>{

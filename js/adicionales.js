@@ -92,6 +92,7 @@ function buscarAdicional(){
         if(snapshot.exists()){
             adicional = snapshot.val().adicional;
             precio = snapshot.val().precio;
+            urlimag = snapshot.val().urlimag;
             escribirAdicional();
         } else {
             limpiarInput();
@@ -155,7 +156,7 @@ function actualizarAdicional(){
         precio:precio,
         urlimag:urlimag
     }).then(()=>{
-        mostrarMensaje("Se actualizo con exito.");
+        alert("Se actualizo con éxito");
         limpiarInput();
         listarAdicional();
     }).catch((error) =>{

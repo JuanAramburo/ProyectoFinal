@@ -154,6 +154,11 @@ function eliminarBebidas(){
         mostrarMensaje("No se ingreso un codigo valido.");
         return;
     }
+
+    if (!confirm(`¿Estás seguro de que deseas eliminar la bebida con ID ${idBebida}?`)){
+        return;
+    }
+
     const dbref = refS(db);
     get(child(dbref, 'Bebidas/' + idBebida)).then((snapshot) =>{
         if(snapshot.exists()){

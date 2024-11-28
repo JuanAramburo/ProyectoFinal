@@ -175,6 +175,10 @@ function eliminarAdicional(){
         return;
     }
 
+    if (!confirm(`¿Estás seguro de que deseas eliminar el adicional con ID ${idAdicional}?`)){
+        return;
+    }
+
     const dbref = refS(db);
     get(child(dbref, 'Adicionales/' + idAdicional)).then((snapshot) =>{
         if(snapshot.exists()){

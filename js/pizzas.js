@@ -176,6 +176,10 @@ function eliminarAutomovil(){
         return;
     }
 
+    if (!confirm(`¿Estás seguro de que deseas eliminar esta pizza con ID ${idPizzas}?`)){
+        return;
+    }
+
     const dbref = refS(db);
     get(child(dbref, 'Pizzas/' + idPizzas)).then((snapshot) =>{
         if(snapshot.exists()){

@@ -169,32 +169,37 @@ function mostrarTablaEspecialidad(){
     ListarEspecialidades();
 }
 
-function eliminarEspecialidad(){
+function eliminarEspecialidad() {
     let idEspecialidad = document.getElementById("txtId").value.trim();
-    if(idEspecialidad === ""){
-        mostrarMensaje("No se ingreso un codigo valido.");
+    if (idEspecialidad === "") {
+        mostrarMensaje("No se ingresó un código válido.");
+        return;
+    }
+
+    if (!confirm(`¿Estás seguro de que deseas eliminar la especialidad con ID ${idEspecialidad}?`)){
         return;
     }
 
     const dbref = refS(db);
-    get(child(dbref, 'Especialidades/' + idEspecialidad)).then((snapshot) =>{
-        if(snapshot.exists()){
+    get(child(dbref, 'Especialidades/' + idEspecialidad)).then((snapshot) => {
+        if (snapshot.exists()) {
             remove(refS(db, 'Especialidades/' + idEspecialidad))
-            .then(() => {
-                mostrarMensaje("Producto eliminado con exito.");
-                limpiarInput();
-                ListarEspecialidades();
-            })
-            .catch((error) => {
-                mostrarMensaje("Ocurrio un error al eliminar el producto: " + error);
-            });
+                .then(() => {
+                    mostrarMensaje("Producto eliminado con éxito.");
+                    limpiarInput();
+                    ListarEspecialidades();
+                })
+                .catch((error) => {
+                    mostrarMensaje("Ocurrió un error al eliminar el producto: " + error);
+                });
         } else {
             limpiarInput();
-            mostrarMensaje("El producto con ID " + idEspecialidad + "no existe.");
+            mostrarMensaje("El producto con ID " + idEspecialidad + " no existe.");
         }
     });
     ListarEspecialidades();
 }
+
 
 btnImagen.addEventListener("click", (event) =>{
     event.preventDefault();
